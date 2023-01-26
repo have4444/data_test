@@ -1,0 +1,19 @@
+import json
+import time
+import os
+import numpy as np
+import pandas as pd
+
+url = r'C:\Users\admin\Desktop\con.xlsx'
+data = pd.read_excel(url)
+data['cont'] = ''
+for i in range(len(data)):
+    for j in range(len(data['B'].apply(lambda x:x.split(','))[i])):
+        str1 = data['B'].apply(lambda x: x.split(','))[i][j]
+        if str1 in data['A'].apply(lambda x:x.split(','))[i]:
+            pass
+        else:
+            str2 = data['B'].apply(lambda x: x.split(','))[i][j]
+            data['cont'][i] = str2
+
+
